@@ -5,6 +5,9 @@ class CreditCardsController < ApplicationController
     @credit_cards = CreditCard.all
   end
 
+  def show
+  end
+
   private
 
   def set_cc
