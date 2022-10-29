@@ -6,6 +6,7 @@ class CreditCardsController < ApplicationController
   end
 
   def show
+    @credit_card = CreditCard.find(params[:id])
   end
 
   private
