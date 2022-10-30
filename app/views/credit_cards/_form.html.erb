@@ -1,0 +1,12 @@
+<%= simple_form_for(credit_card) do |f| %>
+  <%= f.input :cardholder %>
+  <%= f.input :address %>
+  <%= f.input :card_type %>
+  <%= f.input :card_issuer %>
+  <%= f.input :number %>
+  <%= f.input :date %>
+  <%= f.input :pin %>
+  <%= f.input :credit_limit %>
+  <%= f.input :price_per_day %>
+  <%= f.submit %>
+<% end %>
