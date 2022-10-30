@@ -10,6 +10,11 @@ class CreditCardsController < ApplicationController
 
   def new
     @credit_card = CreditCard.new
+    if user.signed_in?
+      @credit_card.user_id = current_user.id
+    else
+      :authenticate_user!
+    end
   end
 
   def create
@@ -29,6 +34,6 @@ class CreditCardsController < ApplicationController
 
   def credit_card_params
     params.require(:credit_card).permit(:number, :pin, :cardholder, :card_type,
-    :card_issuer, :credit_limit, :address, :date, :price_per_day)
+    :card_issuer, :credit_limit, :address, :date, :price_per_day, :user_id)
   end
 end
