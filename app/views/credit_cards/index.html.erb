@@ -1,7 +1,7 @@
 <h1>Here are all the credit cards at your disposal: </h1>
 <% @credit_cards.each do |card| %>
   <ul>
-  <li><%= card.cardholder %></li>
-  <li><%= card.credit_limit %></li>
+  <li>Cardholder: <%= card.cardholder %></li>
+  <li>Credit Limit: <%= card.credit_limit %>$</li>
   </ul>
 <% end %>
