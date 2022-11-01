@@ -1,5 +1,86 @@
 // Specific CSS for your home-page
-.carousel_image {
-  width: 350px;
-  height: auto;
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn-gradient {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: linear-gradient(#167FFB, #0F60C4);
+  transition: background 0.3s ease;
+  border: 1px solid #0F60C4;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(#147EFF, #0F67DA);
+  color: white;
+}
+
+
+// paragraph
+h2 {
+  font-size: 65px;
+  color: black;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+// card
+
+.credit-card {
+  overflow: hidden;
+  width: 600px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+.credit-card > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.credit-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.credit-card p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.credit-card .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }
