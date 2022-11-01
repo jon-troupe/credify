@@ -10,11 +10,7 @@ class CreditCardsController < ApplicationController
 
   def new
     @credit_card = CreditCard.new
-    if user.signed_in?
-      @credit_card.user_id = current_user.id
-    else
-      :authenticate_user!
-    end
+    @credit_card.user_id = current_user.id
   end
 
   def create
