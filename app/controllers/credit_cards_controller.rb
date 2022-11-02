@@ -28,7 +28,7 @@ class CreditCardsController < ApplicationController
 
   def destroy
     @credit_card.destroy
-    redirect_to credit_cards_path(@credit_card)
+    redirect_to credit_cards_path
   end
 
   private
