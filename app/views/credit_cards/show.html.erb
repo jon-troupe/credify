@@ -7,5 +7,7 @@
   <p>Card Issuer: <%= @credit_card.card_issuer %></p>
   <p>Credit Limit: <%= @credit_card.credit_limit %></p>
   <p>Price Per Day: <%= @credit_card.price_per_day %></p>
-  <%= link_to "Delete", credit_card_path(@credit_card), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <% if @credit_card.user_id == current_user.id %>
+    <%= link_to "Delete", credit_card_path(@credit_card), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <% end %>
 </div>

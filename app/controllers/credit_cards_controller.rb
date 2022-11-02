@@ -23,8 +23,12 @@ class CreditCardsController < ApplicationController
   end
 
   def destroy
-    @credit_card.destroy
-    redirect_to credit_cards_path
+    if @credit_card.user_id == current_user.id
+      @credit_card.destroy
+      redirect_to credit_cards_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
