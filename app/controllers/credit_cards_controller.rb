@@ -1,5 +1,5 @@
 class CreditCardsController < ApplicationController
-  before_action :set_cc, only: %i[show update delete]
+  before_action :set_cc, only: %i[show update destroy]
 
   def index
     @credit_cards = CreditCard.all
@@ -10,17 +10,22 @@ class CreditCardsController < ApplicationController
 
   def new
     @credit_card = CreditCard.new
-    if user.signed_in?
-      @credit_card.user_id = current_user.id
-    else
-      :authenticate_user!
-    end
+    @credit_card.user_id = current_user.id
   end
 
   def create
     @credit_card = CreditCard.new(credit_card_params)
     if @credit_card.save
       redirect_to credit_card_path(@credit_card)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @credit_card.user_id == current_user.id
+      @credit_card.destroy
+      redirect_to credit_cards_path
     else
       render :new, status: :unprocessable_entity
     end
