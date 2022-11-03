@@ -9,7 +9,7 @@
     <img src="https://realtytax.ca/wp-content/uploads/2021/07/Credit-Card-Visa-Master-Card.jpg"/>
     <div class="card-product-infos">
       <ul class="list-unstyled">
-        <li><strong>Cardholder:</strong> <%= link_to card.cardholder, "#{card.id}" %></li>
+        <li><strong>Cardholder:</strong> <%= link_to card.cardholder, credit_card_path(@credit_card) %></li>
         <li><strong>Credit Limit: </strong><%= card.credit_limit %>$</li>
       </ul>
     </div>
