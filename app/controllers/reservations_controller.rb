@@ -6,9 +6,14 @@ class ReservationsController < ApplicationController
 
   def create
     @credit_card = CreditCard.find(params[:credit_card_id])
-    @user_id = current_user.id
-    @reservation = Reservation.create(start_date: params[:reservation][:start_date], end_date: params[:reservation][:end_date], user_id: @user_id, credit_card: @credit_card)
-    redirect_to credit_card_path(@credit_card)
+    @reservation = Reservation.new(reservations_params)
+    @reservation.credit_card = @credit_card
+    @reservation.user = current_user
+    if @reservation.save
+      redirect_to credit_card_path(@credit_card)
+    else
+      render :new, :unprocessable_entity
+    end
   end
 
   private
