@@ -1,12 +1,29 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  .nav-link, .dropdown-toggle {
+    color: $blue;
+    cursor: pointer;
+    &:hover {
+      color: $gray;
+    }
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-lewagon .navbar-brand {
+  padding: 0;
+  img {
+    width: 60px;
+  }
+  img {
+    width: 60px;
+  }
+}
+
+#navbarDropdown {
+  height: 40px;
 }
