@@ -4,16 +4,17 @@
 </div>
 
 <% @credit_cards.each do |card| %>
-<div class= "row justify-content-center py-2">
-  <div class="card-product py-3">
-    <img src="https://realtytax.ca/wp-content/uploads/2021/07/Credit-Card-Visa-Master-Card.jpg"/>
-    <div class="card-product-infos">
-      <ul class="list-unstyled">
-        <li><strong>Cardholder:</strong> <%= link_to card.cardholder, credit_card_path(card) %></li>
-        <li><strong>Credit Limit: </strong><%= card.credit_limit %>$</li>
-      </ul>
+  <div class= "row justify-content-center py-2">
+    <div class="card-product py-3">
+      <%= link_to credit_card_path(card), :action => 'go' do %>
+        <img src="https://realtytax.ca/wp-content/uploads/2021/07/Credit-Card-Visa-Master-Card.jpg"/>
+        <div class="card-product-infos">
+          <ul class="list-unstyled">
+            <li><strong>Cardholder:</strong> <%=card.cardholder%></li>
+            <li><strong>Credit Limit: </strong><%= card.credit_limit %>$</li>
+          </ul>
+        </div>
+      <% end %>
     </div>
   </div>
-</div>
-
 <% end %>
