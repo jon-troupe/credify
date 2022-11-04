@@ -7,7 +7,20 @@
   <p>Card Issuer: <%= @credit_card.card_issuer %></p>
   <p>Credit Limit: <%= @credit_card.credit_limit %></p>
   <p>Price Per Day: <%= @credit_card.price_per_day %></p>
+  <%= link_to "Book this card", new_credit_card_reservation_path(@credit_card) %>
   <% if @credit_card.user_id == current_user.id %>
-    <%= link_to "Delete", credit_card_path(@credit_card), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <%= link_to "Remove your card", credit_card_path(@credit_card), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
   <% end %>
+</div>
+<br>
+<br>
+<br>
+<div>
+  <h3>Already booked dates for this card: </h3>
+  <% @reservations.each do |reservation| %>
+    <br>
+    <span>From: <%= reservation.start_date %></span>
+    <span>Until: <%= reservation.end_date %></span>
+    <br>
+    <% end %>
 </div>
