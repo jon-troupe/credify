@@ -9,6 +9,6 @@
 }
 
 .btn-gradient:hover {
-  background: linear-gradient(lighten( $blue, 5%), $blue);
+  background: linear-gradient($blue, darken($blue, 10%));
   color: white;
 }
