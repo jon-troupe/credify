@@ -6,6 +6,8 @@ class CreditCardsController < ApplicationController
   end
 
   def show
+    @reservations = Reservation.all
+    @reservations = @reservations.select { |reservation| reservation.credit_card_id == @credit_card.id }
   end
 
   def new
