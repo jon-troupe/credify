@@ -1,7 +1,6 @@
-<div>
+<div class="container py-4">
   <h1>Here is <%= @credit_card.user.email %>'s card</h1>
-
-  <h3>Here are some details:</h3>
+  <h3>Here are the card details:</h3>
   <p>Cardholder name: <%= @credit_card.cardholder %></p>
   <p>Card Type: <%= @credit_card.card_type %></p>
   <p>Card Issuer: <%= @credit_card.card_issuer %></p>
@@ -11,6 +10,7 @@
   <% if @credit_card.user_id == current_user.id %>
     <%= link_to "Remove your card", credit_card_path(@credit_card), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
   <% end %>
+  <%= link_to "Back", credit_cards_path, class: "btn btn-primary" %>
 </div>
 <br>
 <br>
