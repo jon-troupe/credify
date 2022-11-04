@@ -12,10 +12,8 @@
   <% end %>
   <%= link_to "Back", credit_cards_path, class: "btn btn-primary" %>
 </div>
-<br>
-<br>
-<br>
-<div>
+<hr>
+<div class="container py-4">
   <h3>Already booked dates for this card: </h3>
   <% @reservations.each do |reservation| %>
     <br>
