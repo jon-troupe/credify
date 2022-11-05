@@ -1,9 +1,10 @@
 .credit-card {
   overflow: hidden;
-  width: 600px;
+  width: 650px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
+  max-width: 100%;
 }
 
 .credit-card > img {
@@ -30,4 +31,11 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+}
+
+.credit-card .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }
