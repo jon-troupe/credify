@@ -5,6 +5,10 @@ class CreditCardsController < ApplicationController
     @credit_cards = CreditCard.all
   end
 
+  def my_cards
+    @credit_cards = CreditCard.select { |card| card.user_id == current_user.id }
+  end
+
   def show
     @reservations = Reservation.all
     @reservations = @reservations.select { |reservation| reservation.credit_card_id == @credit_card.id }
