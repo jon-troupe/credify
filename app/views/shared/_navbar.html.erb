@@ -21,8 +21,8 @@
           <li class="nav-item dropdown">
             <div class="dropdown-toggle d-flex align-items-center" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-circle-user fa-2xl"></i></div>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My cards", "#", class: "dropdown-item" %>
-              <%= link_to "My reservations", "#", class: "dropdown-item" %>
+              <%= link_to "My reservations", reservation_path(current_user), class: "dropdown-item" %>
+              <%= link_to "My cards", my_cards_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
