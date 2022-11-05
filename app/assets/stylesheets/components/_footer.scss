@@ -1,3 +1,7 @@
+/* Quick fix to make footer fixed */
+body {
+  padding-bottom: 100px;
+}
 .footer {
   background: #fff;
   display: flex;
@@ -6,6 +10,9 @@
   height: 100px;
   padding: 0px 50px;
   color: $blue;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 .footer-links {
   display: flex;
@@ -20,4 +27,15 @@
 }
 .footer-links a:hover {
   opacity: 0.8;
+}
+
+/* Make footer smaller in mobile */
+@media screen and (max-width: 768px) {
+  body {
+    padding-bottom: 50px;
+  }
+  .footer {
+    height: 50px;
+    padding: 10px 15px;
+  }
 }
