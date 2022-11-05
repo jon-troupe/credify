@@ -1,0 +1,9 @@
+<h3>Your bookings: </h3>
+<% @reservations.each do |reservation| %>
+  <h5>For: <%= link_to "#{reservation.credit_card.cardholder}'s card",  credit_card_path(reservation.credit_card_id) %></h5>
+  <span>From: <%= reservation.start_date %></span>
+  <span>Until: <%= reservation.end_date %></span>
+  <br>
+  <%= link_to "Cancel this booking", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
+  <br>
+<% end %>

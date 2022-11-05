@@ -2,6 +2,11 @@ class ReservationsController < ApplicationController
   before_action :set_credit_card, only: %i[new create]
   before_action :set_reservation, only: %i[destroy]
 
+  def show
+    @reservations_all = Reservation.all
+    @reservations = @reservations_all.select { |reservation| reservation.user_id == current_user.id }
+  end
+
   def new
     @reservation = Reservation.new
   end
