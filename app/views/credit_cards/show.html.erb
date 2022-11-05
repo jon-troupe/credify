@@ -1,10 +1,10 @@
 <div class="container py-4">
   <h3>Here is <%= @credit_card.user.email %>'s card</h3>
-  <p>Cardholder name: <%= @credit_card.cardholder %></p>
-  <p>Card Type: <%= @credit_card.card_type %></p>
-  <p>Card Issuer: <%= @credit_card.card_issuer %></p>
-  <p>Credit Limit: <%= @credit_card.credit_limit %></p>
-  <p>Price Per Day: <%= @credit_card.price_per_day %></p>
+  <p><strong>Cardholder name: </strong><%= @credit_card.cardholder %></p>
+  <p><strong>Card Type: </strong><%= @credit_card.card_type %></p>
+  <p><strong>Card Issuer: </strong><%= @credit_card.card_issuer %></p>
+  <p><strong>Credit Limit: </strong><%= @credit_card.credit_limit %></p>
+  <p><strong>Price Per Day: </strong><%= @credit_card.price_per_day %></p>
   <% if @credit_card.user_id == current_user.id %>
     <%= link_to "Remove card", credit_card_path(@credit_card), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
   <% else %>
@@ -20,12 +20,14 @@
     <h3>This card is reserved: </h3>
   <% end %>
   <% @reservations.each do |reservation| %>
-    <br>
-    <span>From: <%= reservation.start_date %></span>
-    <span>Until: <%= reservation.end_date %></span>
-    <% if reservation.user_id == current_user.id %>
-      <%= link_to "Cancel reservation", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
-    <% end %>
-    <br>
-    <% end %>
+    <div class= "py-4">
+      <div class="list-group mb-4">
+        <span class="list-group-item"> <strong>From: </strong> <%= reservation.start_date %></span>
+        <span class="list-group-item"><strong>Until: </strong><%= reservation.end_date %></span>
+      </div>
+      <% if reservation.user_id == current_user.id %>
+        <p><%= link_to "Cancel reservation", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %></p>
+      <% end %>
+    </div>
+  <% end %>
 </div>
