@@ -4,12 +4,13 @@
     <div class="card-product-infos">
       <div class="d-flex align-items-center">
         <div>
-          <p><strong>Issuer:</strong> <%=card.card_issuer%></p>
+          <p><strong>Card Type:</strong> <%=card.card_type%></p>
           <p><strong>Credit Limit: </strong>$<%= card.credit_limit %></p>
         </div>
         <div class="pricing text-center">
           <small>You pay:</small>
           <p><strong>$<%= card.price_per_day %></strong></p>
+          <small>per day</small>
         </div>
       </div>
     </div>
