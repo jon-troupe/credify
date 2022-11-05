@@ -6,9 +6,19 @@
   background: linear-gradient(lighten( $blue, 10%), $blue);
   transition: background 0.3s ease;
   border: 1px solid $blue;
+  &.btn-light-blue {
+    background: linear-gradient(darken( $light_blue, 10%), $light_blue);
+    border: 1px solid $light_blue;
+  }
 }
+
+
 
 .btn-gradient:hover {
   background: linear-gradient($blue, darken($blue, 10%));
   color: white;
+  &.btn-light-blue {
+    background: linear-gradient($light_blue, darken($light_blue, 10%));
+    color: white;
+  }
 }
