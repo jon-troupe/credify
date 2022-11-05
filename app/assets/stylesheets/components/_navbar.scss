@@ -1,6 +1,16 @@
+body {
+  padding-top: 60px;
+}
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  z-index: 10;
   .nav-link, .dropdown-toggle {
     color: $blue;
     cursor: pointer;
