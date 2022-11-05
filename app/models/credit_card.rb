@@ -13,7 +13,6 @@ class CreditCard < ApplicationRecord
   validates :address, presence: true
   validates :price_per_day, presence: true
   validates :cardholder, presence: true
-  validates :number, length: { is: 8 }
   validates :card_type, inclusion: { in: CARD_TYPE }
   validates :card_issuer, inclusion: { in: ISSUERS }
   validates :credit_limit, length: { in: 3..10 }
