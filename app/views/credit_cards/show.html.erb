@@ -20,6 +20,9 @@
     <br>
     <span>From: <%= reservation.start_date %></span>
     <span>Until: <%= reservation.end_date %></span>
+    <% if reservation.user_id == current_user.id %>
+      <%= link_to "Cancel your reservation", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
+    <% end %>
     <br>
     <% end %>
 </div>

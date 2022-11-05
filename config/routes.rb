@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :credit_cards do
     resources :reservations, only: %i[new create]
   end
+
+  resources :reservations, only: %i[destroy]
 end
