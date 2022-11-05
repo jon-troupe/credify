@@ -1,9 +1,14 @@
+<div class="container py-4">
 <h3>Your reservations: </h3>
+<div class="container py-4">
 <% @reservations.each do |reservation| %>
   <h5>For: <%= link_to "#{reservation.credit_card.cardholder}'s card",  credit_card_path(reservation.credit_card_id) %></h5>
-  <span>From: <%= reservation.start_date %></span>
-  <span>Until: <%= reservation.end_date %></span>
-  <br>
+  <div class="list-group mb-4">
+    <span class="list-group-item">From: <%= reservation.start_date %></span>
+    <span class="list-group-item">Until: <%= reservation.end_date %></span>
+  </div>
   <%= link_to "Cancel reservation", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
-  <br>
+  <hr>
 <% end %>
+  </div>
+</div>
