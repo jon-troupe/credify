@@ -1,5 +1,9 @@
-<%= simple_form_for([@credit_card, @reservation]) do |f| %>
+<div class="container py-4">
+  <h3>When you do you need this card?</h3>
+  <%= simple_form_for([@credit_card, @reservation]) do |f| %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.submit %>
-<% end %>
+  <% end %>
+  <%= link_to "Cancel", credit_card_path(@credit_card), class: "btn btn-primary my-3" %>
+</div>
