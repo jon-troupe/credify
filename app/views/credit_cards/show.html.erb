@@ -14,9 +14,9 @@
 </div>
 <hr>
 <div class="container py-4">
-  <% if @credit_card.user_id == current_user.id %>
+  <% if @credit_card.user_id == current_user.id && @reservations.any? %>
     <h3>Your card is reserved:</h3>
-  <% else %>
+  <% elsif @reservations.any? %>
     <h3>This card is reserved: </h3>
   <% end %>
   <% @reservations.each do |reservation| %>
