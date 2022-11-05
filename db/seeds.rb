@@ -8,7 +8,7 @@ CreditCard.destroy_all
     number:Faker::Bank.account_number(digits: 8),
     pin: Faker::Bank.account_number(digits: 4),
     card_type: ["Costco", "Triangle", "VISA", "Mastercard", "AMEX"].sample,
-    card_issuer: ["BMO", "Scotiabank", "Bank of America", "Swiss Credit Union", "TD", "Desjardins"].sample,
+    card_issuer: CreditCard::ISSUERS.sample,
     credit_limit: Faker::Number.number(digits: 4),
     date: "#{(1..12).to_a.sample}/#{(23..28).to_a.sample}",
     address: Faker::Address.street_address,

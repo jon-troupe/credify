@@ -1,4 +1,5 @@
 class CreditCard < ApplicationRecord
+  ISSUERS = ["BMO", "Scotiabank", "Bank of America", "Swiss", "Credit Union", "TD", "Desjardins"].freeze
   belongs_to :user
   has_many :reservations
   validates :number, presence: true
@@ -13,8 +14,7 @@ class CreditCard < ApplicationRecord
   validates :number, length: { is: 8 }
   validates :card_type, inclusion: { in: ["Costco", "Triangle", "VISA", "Mastercard", "AMEX"],
     message: "%{value} is not a card type" }
-  validates :card_issuer, inclusion: { in: ["BMO", "Scotiabank", "Bank of America", "Swiss Credit Union", "TD", "Desjardins"],
-    message: "%{value} is not a card issuer" }
+  validates :card_issuer, inclusion: { in: ISSUERS }
   validates :credit_limit, length: { in: 3..10 }
   validates :price_per_day, length: { in: 1..5 }
 end
