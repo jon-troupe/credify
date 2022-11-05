@@ -1,7 +1,7 @@
 <%= simple_form_for(credit_card) do |f| %>
   <%= f.input :cardholder %>
   <%= f.input :address %>
-  <%= f.input :card_type %>
+  <%= f.input :card_type, collection: CreditCard::CARD_TYPE %>
   <%= f.input :card_issuer, collection: CreditCard::ISSUERS %>
   <%= f.input :number %>
   <%= f.input :date %>
