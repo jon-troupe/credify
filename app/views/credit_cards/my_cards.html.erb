@@ -1,0 +1,20 @@
+
+<div class="text-center">
+  <h3>Your cards: </h3>
+</div>
+
+<% @credit_cards.each do |card| %>
+  <div class= "row justify-content-center py-2">
+    <div class="card-product py-3">
+      <%= link_to credit_card_path(card), :action => 'go' do %>
+        <img src="https://realtytax.ca/wp-content/uploads/2021/07/Credit-Card-Visa-Master-Card.jpg"/>
+        <div class="card-product-infos">
+          <ul class="list-unstyled">
+            <li><strong>Card Number:</strong> <%=card.number%></li>
+            <li><strong>Price Per Day: </strong><%= card.price_per_day %>$</li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
