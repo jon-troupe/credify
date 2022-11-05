@@ -2,7 +2,7 @@
   <%= f.input :cardholder %>
   <%= f.input :address %>
   <%= f.input :card_type %>
-  <%= f.input :card_issuer %>
+  <%= f.input :card_issuer, collection: CreditCard::ISSUERS %>
   <%= f.input :number %>
   <%= f.input :date %>
   <%= f.input :pin %>
