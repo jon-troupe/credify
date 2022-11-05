@@ -1,7 +1,17 @@
 <div class="card-product">
-  <img src="https://realtytax.ca/wp-content/uploads/2021/07/Credit-Card-Visa-Master-Card.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
+  <%= link_to credit_card_path(card), :action => 'go' do %>
+    <img src="https://realtytax.ca/wp-content/uploads/2021/07/Credit-Card-Visa-Master-Card.jpg"/>
+    <div class="card-product-infos">
+      <div class="d-flex align-items-center">
+        <div>
+          <p><strong>Issuer:</strong> <%=card.card_issuer%></p>
+          <p><strong>Credit Limit: </strong>$<%= card.credit_limit %></p>
+        </div>
+        <div class="pricing text-center">
+          <small>You pay:</small>
+          <p><strong>$<%= card.price_per_day %></strong></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

@@ -1,20 +1,21 @@
-
-<div class="text-center">
-  <h3>Here are all the credit cards at your disposal: </h3>
-</div>
-
-<% @credit_cards.each do |card| %>
-  <div class= "row justify-content-center py-2">
-    <div class="card-product py-3">
-      <%= link_to credit_card_path(card), :action => 'go' do %>
-        <img src="https://realtytax.ca/wp-content/uploads/2021/07/Credit-Card-Visa-Master-Card.jpg"/>
-        <div class="card-product-infos">
-          <ul class="list-unstyled">
-            <li><strong>Cardholder:</strong> <%=card.cardholder%></li>
-            <li><strong>Credit Limit: </strong><%= card.credit_limit %>$</li>
-          </ul>
-        </div>
-      <% end %>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <h2>Here are all the credit cards at your disposal: </h2>
+      <div class="row py-4">
+        <% @credit_cards.each do |card| %>
+          <div class="col-12 col-xl-6 mb-4">
+            <%= render "card", card: card %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="mid-gray p-4 h-100">
+        <%= link_to raw('<i class="fa-solid fa-plus"></i> Add Credit Card'), new_credit_card_path, class: "btn d-block btn-primary btn-lg mb-4" %>
+        <%= link_to raw('<i class="fa-solid fa-credit-card"></i> My cards'), my_cards_path, class: "btn d-block btn-primary btn-lg mb-4" %>
+        <%= link_to raw('<i class="fa-solid fa-address-card"></i> My reservations'), reservation_path(current_user), class: "btn d-block btn-primary btn-lg mb-4" %>
+      </div>
     </div>
   </div>
-<% end %>
+</div>
