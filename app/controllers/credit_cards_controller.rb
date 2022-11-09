@@ -1,5 +1,5 @@
 class CreditCardsController < ApplicationController
-  before_action :set_cc, only: %i[show update destroy]
+  before_action :set_cc, only: %i[show update destroy edit update]
 
   def index
     @credit_cards = CreditCard.all
@@ -26,6 +26,14 @@ class CreditCardsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @credit_card = CreditCard.update(credit_card_params)
+    redirect_to credit_card_path(@credit_card)
   end
 
   def destroy

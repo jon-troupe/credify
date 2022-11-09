@@ -7,6 +7,7 @@
   <p><strong>Price Per Day: </strong><%= @credit_card.price_per_day %></p>
   <% if @credit_card.user_id == current_user.id %>
     <%= link_to "Remove card", credit_card_path(@credit_card), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
+    <%= link_to "Edit", edit_credit_card_path, class: "btn btn-primary" %>
   <% else %>
     <%= link_to "Reserve card", new_credit_card_reservation_path(@credit_card), class: "btn btn-primary" %>
   <% end %>
