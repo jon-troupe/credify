@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     resources :reservations, only: %i[new create]
   end
 
-  resources :reservations, only: %i[show destroy]
+  resources :reservations, only: %i[show destroy edit update]
 end
