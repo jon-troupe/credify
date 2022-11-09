@@ -21,6 +21,10 @@
   <% end %>
   <% @reservations.each do |reservation| %>
     <div class= "py-4">
+      <span class="badge rounded-pill text-bg-info my-2"><%= reservation.status %></span>
+      <% if @credit_card.user_id == current_user.id %>
+        <p><%= link_to "Accept", accept_path(reservation), data: { turbo_method: :patch} %> | <%= link_to "Reject", reject_path(reservation), data: { turbo_method: :patch} %></p>
+      <% end %>
       <div class="list-group mb-4">
         <span class="list-group-item"> <strong>From: </strong> <%= reservation.start_date %></span>
         <span class="list-group-item"><strong>Until: </strong><%= reservation.end_date %></span>
