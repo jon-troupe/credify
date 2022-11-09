@@ -31,7 +31,7 @@ p "Users created"
 
 33.times do
   CreditCard.create!(
-    cardholder: Faker::Name.name,
+    cardholder: "Laura González",
     number:Faker::Bank.account_number(digits: 8),
     pin: Faker::Bank.account_number(digits: 4),
     card_type: CreditCard::CARD_TYPE.sample,
@@ -46,7 +46,7 @@ end
 
 33.times do
   CreditCard.create!(
-    cardholder: Faker::Name.name,
+    cardholder: "Touhami Abi",
     number:Faker::Bank.account_number(digits: 8),
     pin: Faker::Bank.account_number(digits: 4),
     card_type: CreditCard::CARD_TYPE.sample,
@@ -61,7 +61,7 @@ end
 
 33.times do
   CreditCard.create!(
-    cardholder: Faker::Name.name,
+    cardholder: "Jonathan",
     number:Faker::Bank.account_number(digits: 8),
     pin: Faker::Bank.account_number(digits: 4),
     card_type: CreditCard::CARD_TYPE.sample,
