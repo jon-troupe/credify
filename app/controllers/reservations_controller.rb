@@ -31,6 +31,8 @@ class ReservationsController < ApplicationController
   end
 
   def update
+    @reservation.update(reservations_params)
+    redirect_to credit_card_path(@reservation.credit_card_id)
   end
 
   private
