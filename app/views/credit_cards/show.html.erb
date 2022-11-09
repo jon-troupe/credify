@@ -11,7 +11,6 @@
   <% else %>
     <%= link_to "Reserve card", new_credit_card_reservation_path(@credit_card), class: "btn btn-primary" %>
   <% end %>
-  <%= link_to "Back", credit_cards_path, class: "btn btn-primary" %>
 </div>
 <hr>
 <div class="container py-4">
@@ -27,6 +26,7 @@
         <span class="list-group-item"><strong>Until: </strong><%= reservation.end_date %></span>
       </div>
       <% if reservation.user_id == current_user.id %>
+        <p><%= link_to "Edit reservation", edit_reservation_path(reservation), class: "btn btn-primary" %></p>
         <p><%= link_to "Cancel reservation", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %></p>
       <% end %>
     </div>
