@@ -2,7 +2,12 @@ class CreditCardsController < ApplicationController
   before_action :set_cc, only: %i[show update destroy]
 
   def index
-    @credit_cards = CreditCard.all
+    if params[:type].present?
+      @credit_cards = CreditCard.where(card_type: params[:type])
+      @type = "<span class='bg-info'>#{params[:type]}</span> "
+    else
+      @credit_cards = CreditCard.all
+    end
   end
 
   def my_cards
