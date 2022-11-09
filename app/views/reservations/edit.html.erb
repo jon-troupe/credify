@@ -1,0 +1,9 @@
+<div class="container py-4">
+  <h3>Enter new dates</h3>
+  <%= simple_form_for([@credit_card, @reservation]) do |f| %>
+  <%= f.input :start_date, data: { placeholder: @reservation.start_date} %>
+  <%= f.input :end_date, data: { placeholder: @reservation.end_date} %>
+  <%= f.submit %>
+  <% end %>
+  <%= link_to "Cancel", credit_card_path(@reservation.credit_card), class: "btn btn-primary my-3" %>
+</div>
