@@ -1,8 +1,11 @@
 require 'faker'
 
 Reservation.destroy_all
+p "Destroying reservations"
 CreditCard.destroy_all
+p "Destroying all your credits cards :("
 User.destroy_all
+p "Destroying all your users"
 
 ricky = User.create!(
   email: "ricky.tran@gmail.com",
@@ -23,6 +26,8 @@ jon = User.create!(
   email: "jonathan.troupe@gmail.com",
   password: "123456"
 )
+
+p "Users created"
 
 33.times do
   CreditCard.create!(
@@ -68,3 +73,5 @@ end
     user: jon
   )
 end
+
+p "Credit cards created"
