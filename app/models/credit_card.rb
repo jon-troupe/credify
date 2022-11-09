@@ -1,6 +1,6 @@
 class CreditCard < ApplicationRecord
   ISSUERS = ["BMO", "Scotiabank", "Bank of America", "Swiss", "Credit Union", "TD", "Desjardins"].freeze
-  CARD_TYPE = ["Costco", "Triangle", "VISA", "Mastercard", "AMEX"].freeze
+  CARD_TYPE = ["Costco", "Triangle", "VISA", "Mastercard", "AMEX", "Discover"].freeze
 
   belongs_to :user
   has_many :reservations
