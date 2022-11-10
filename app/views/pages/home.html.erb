@@ -2,7 +2,11 @@
   <div class="container">
     <h1><strong>Need more money to spend?</strong> <strong>We have thousands of credit cards for rent</strong></h1>
     <p>Join our scheme and Use Credify today.</p>
-    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-gradient btn-light-blue" %>
+    <% if user_signed_in? %>
+      <%= link_to "Find a card", credit_cards_path, class: "btn btn-gradient btn-light-blue" %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-gradient btn-light-blue" %>
+    <% end %>
   </div>
 </div>
 
@@ -22,7 +26,7 @@
 </div>
 
 <div class= "container py-5">
-  <h2><strong>New Credit Cards</strong></h2>
+  <h2><strong>Popular Credit Cards</strong></h2>
   <div class="row py-4">
     <% @credit_cards.each do |card| %>
       <div class="col-12 col-xl-6 mb-4">
