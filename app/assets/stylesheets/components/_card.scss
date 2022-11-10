@@ -42,3 +42,34 @@
     opacity: 0.9;
   }
 }
+
+/* Categories styles */
+.card-category {
+  display: flex;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+}
+.card-category {
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+.card-category a {
+  align-items: center;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  display: flex;
+  font-size: 1.75em;
+  font-weight: bold;
+  height: 180px;
+  justify-content: center;
+  padding: 20px;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  width: 100%;
+}
+.card-category a:hover {
+  background-color: rgba(0,0,0,0.3);
+}

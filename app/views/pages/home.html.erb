@@ -9,7 +9,15 @@
 <div class="bg-white">
   <div class= "container py-5">
     <h2><strong>The Airbnb for Credit Cards</strong></h2>
-    Categories
+    <div class="row">
+      <% CreditCard::CARD_TYPE.each do |card_type| %>
+        <div class="col-12 col-sm-6 col-lg-4 py-3">
+          <div class="card-category" style="background-image: url(<%= asset_path card_type %>);">
+            <a href="/credit_cards?type=<%= card_type %>"><%= card_type %></a>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
