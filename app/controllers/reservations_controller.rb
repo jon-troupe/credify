@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_credit_card, only: %i[new create]
-  before_action :set_reservation, only: %i[destroy edit update]
+  before_action :set_reservation, only: %i[destroy edit update accept reject]
 
   def show
     @reservations_all = Reservation.all
@@ -32,6 +32,17 @@ class ReservationsController < ApplicationController
 
   def update
     @reservation.update(reservations_params)
+    @reservation.status = "pending" if @credit_card.user_id != current_user.id
+    redirect_to credit_card_path(@reservation.credit_card_id)
+  end
+
+  def accept
+    @reservation.update(status: "accepted")
+    redirect_to credit_card_path(@reservation.credit_card_id)
+  end
+
+  def reject
+    @reservation.update(status: "rejected")
     redirect_to credit_card_path(@reservation.credit_card_id)
   end
 

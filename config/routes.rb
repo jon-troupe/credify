@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     resources :reservations, only: %i[new create]
   end
 
+  patch "/reservations/:id/accept", to: "reservations#accept", as: :accept
+  patch "/reservations/:id/reject", to: "reservations#reject", as: :reject
   resources :reservations, only: %i[show destroy edit update]
 end
