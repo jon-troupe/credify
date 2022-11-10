@@ -1,7 +1,16 @@
 <div class="container py-5">
   <div class="row">
     <div class="col-12 col-md-8">
-      <h2>Here are all the credit cards at your disposal: </h2>
+      <h2>Here are all the <%= raw(@type) %>credit cards at your disposal:</h2>
+      <div class="filters">
+        <% if @type %>
+          <%= link_to "Clear filter", credit_cards_path %>
+        <% else %>
+          <% CreditCard::CARD_TYPE.each do |card| %>
+            <a href="/credit_cards?type=<%= card %>" class="btn btn-outline-primary"><%= card %></a>
+          <% end %>
+        <% end %>
+      </div>
       <div class="row py-4">
         <% @credit_cards.each do |card| %>
           <div class="col-12 col-xl-6 mb-4">

@@ -1,10 +1,10 @@
 <div class="card-product">
   <%= link_to credit_card_path(card), :action => 'go' do %>
-    <img src="https://realtytax.ca/wp-content/uploads/2021/07/Credit-Card-Visa-Master-Card.jpg"/>
+    <%= image_tag card.card_type, alt: "Card type" %>
     <div class="card-product-infos">
       <div class="d-flex align-items-center">
         <div>
-          <p><strong>Card Type:</strong> <%=card.card_type%></p>
+          <p><strong>Card Issuer:</strong> <%=card.card_issuer%></p>
           <p><strong>Credit Limit: </strong>$<%= card.credit_limit %></p>
         </div>
         <div class="pricing text-center">
