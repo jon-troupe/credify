@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_credit_card, only: %i[new create]
-  before_action :set_reservation, only: %i[destroy]
+  before_action :set_reservation, only: %i[destroy edit update]
 
   def show
     @reservations_all = Reservation.all
@@ -24,6 +24,14 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation.destroy
+    redirect_to credit_card_path(@reservation.credit_card_id)
+  end
+
+  def edit
+  end
+
+  def update
+    @reservation.update(reservations_params)
     redirect_to credit_card_path(@reservation.credit_card_id)
   end
 
