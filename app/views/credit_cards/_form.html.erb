@@ -1,13 +1,45 @@
-<%= simple_form_for(credit_card) do |f| %>
-  <%= f.input :cardholder %>
-  <%= f.input :address %>
-  <%= f.input :card_type, collection: CreditCard::CARD_TYPE %>
-  <%= f.input :card_issuer, collection: CreditCard::ISSUERS %>
-  <%= f.input :number %>
-  <%= f.input :date %>
-  <%= f.input :pin %>
-  <%= f.input :credit_limit %>
-  <%= f.input :price_per_day %>
-  <%= f.hidden_field :user_id %>
-  <%= f.submit %>
-<% end %>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10">
+      <div class="p-4 shadow-lg border">
+        <%= simple_form_for(credit_card) do |f| %>
+          <div class="row">
+            <div class= "col">
+              <%= f.input :cardholder,  input_html: { class: 'form-control' } %>
+            </div>
+            <div class= "col">
+              <%= f.input :address %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <%= f.input :card_type, collection: CreditCard::CARD_TYPE %>
+            </div>
+            <div class="col">
+              <%= f.input :card_issuer, collection: CreditCard::ISSUERS %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <%= f.input :number %>
+            </div>
+            <div class="col">
+              <%= f.input :date %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <%= f.input :pin %>
+            </div>
+            <div class="col">
+              <%= f.input :credit_limit %>
+            </div>
+          </div>
+          <%= f.input :price_per_day %>
+          <%= f.hidden_field :user_id %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
