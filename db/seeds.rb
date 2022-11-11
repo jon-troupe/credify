@@ -7,7 +7,7 @@ p "Destroying all your credits cards :("
 User.destroy_all
 p "Destroying all your users"
 
-ricky = User.create!(
+User.create!(
   email: "ricky.tran@gmail.com",
   password: "123456"
 )
