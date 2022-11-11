@@ -17,6 +17,12 @@ class CreditCardsController < ApplicationController
   def show
     @reservations = Reservation.all
     @reservations = @reservations.select { |reservation| reservation.credit_card_id == @credit_card.id }
+
+    @marker =
+      {
+        lat: @credit_card.latitude,
+        lng: @credit_card.longitude
+      }
   end
 
   def new
