@@ -16,7 +16,7 @@
     <div class="row">
       <% CreditCard::CARD_TYPE.each do |card_type| %>
         <div class="col-12 col-sm-6 col-lg-4 py-3">
-          <div class="card-category" style="background-image: url(<%= asset_path card_type %>);">
+          <div class="card-category" style="background-image: url(<%= asset_path "#{card_type}.jpg" %>);">
             <a href="/credit_cards?type=<%= card_type %>"><%= card_type %></a>
           </div>
         </div>
