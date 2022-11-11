@@ -4,9 +4,11 @@
       <h2>Here are all the <%= raw(@type) %>credit cards at your disposal</h2>
       <div class="filters">
         <% if @type %>
-          <%= link_to "Clear filter", credit_cards_path %>
+          <div class="mt-4">
+            <%= link_to "Clear filter", credit_cards_path %>
+          </div>
         <% else %>
-          <div class="mt-5">
+          <div class="mt-4">
             <%= "Filter by card type:" %>
             <% CreditCard::CARD_TYPE.each do |card| %>
               <a href="/credit_cards?type=<%= card %>" class="btn btn-outline-primary"><%= card %></a>
