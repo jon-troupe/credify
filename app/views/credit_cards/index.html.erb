@@ -21,9 +21,11 @@
     </div>
     <div class="col-12 col-md-4">
       <div class="mid-gray p-4 h-100">
-        <%= link_to raw('<i class="fa-solid fa-plus"></i> Add Credit Card'), new_credit_card_path, class: "btn d-block btn-primary btn-lg mb-4" %>
-        <%= link_to raw('<i class="fa-solid fa-address-card"></i> My reservations'), reservation_path(current_user), class: "btn d-block btn-primary btn-lg mb-4" %>
-        <%= link_to raw('<i class="fa-solid fa-credit-card"></i> My cards'), my_cards_path, class: "btn d-block btn-primary btn-lg mb-4" %>
+        <div class="sticky-buttons">
+          <%= link_to raw('<i class="fa-solid fa-plus"></i> Add Credit Card'), new_credit_card_path, class: "btn d-block btn-primary btn-lg mb-4" %>
+          <%= link_to raw('<i class="fa-solid fa-address-card"></i> My reservations'), reservation_path(current_user), class: "btn d-block btn-primary btn-lg mb-4" %>
+          <%= link_to raw('<i class="fa-solid fa-credit-card"></i> My cards'), my_cards_path, class: "btn d-block btn-primary btn-lg mb-4" %>
+        </div>
       </div>
     </div>
   </div>
