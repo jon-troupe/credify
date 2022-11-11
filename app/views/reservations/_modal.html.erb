@@ -1,0 +1,22 @@
+<div class="modal modal-lg fade" id="new_reservation_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">When do you need this card?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+
+      <%= simple_form_for([credit_card, reservation]) do |f| %>
+        <div class="modal-body">
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit class: "btn btn-primary" %>
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

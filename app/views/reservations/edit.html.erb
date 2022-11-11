@@ -1,9 +1,17 @@
 <div class="container py-4">
-  <h3>Enter new dates</h3>
-  <%= simple_form_for([@credit_card, @reservation]) do |f| %>
-  <%= f.input :start_date, data: { placeholder: @reservation.start_date} %>
-  <%= f.input :end_date, data: { placeholder: @reservation.end_date} %>
-  <%= f.submit %>
-  <% end %>
-  <%= link_to "Cancel", credit_card_path(@reservation.credit_card), class: "btn btn-primary my-3" %>
+  <h3 class="text-center">Enter new dates</h3>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+        <div class="p-4 shadow-lg border">
+          <%= simple_form_for([@credit_card, @reservation]) do |f| %>
+            <%= f.input :start_date, data: { placeholder: @reservation.start_date} %>
+            <%= f.input :end_date, data: { placeholder: @reservation.end_date} %>
+            <%= f.submit class: "btn btn-primary" %>
+            <%= link_to "Cancel", credit_card_path(@reservation.credit_card), class: "btn btn-outline-secondary my-3" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
