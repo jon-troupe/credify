@@ -4,12 +4,12 @@
 <% @reservations.each do |reservation| %>
   <div class="col-12 col-md-4 py-4">
     <% if reservation.status == "pending" %>
-          <span class="badge rounded-pill text-bg-info my-2"><%= reservation.status %></span>
-        <% elsif reservation.status == "accepted" %>
-          <span class="badge rounded-pill text-bg-success my-2"><%= reservation.status %></span>
-        <% else %>
-          <span class="badge rounded-pill text-bg-danger my-2"><%= reservation.status %></span>
-        <% end %>
+        <span class="badge rounded-pill text-bg-info my-2"><%= reservation.status %></span>
+    <% elsif reservation.status == "accepted" %>
+        <span class="badge rounded-pill text-bg-success my-2"><%= reservation.status %></span>
+    <% else %>
+        <span class="badge rounded-pill text-bg-danger my-2"><%= reservation.status %></span>
+    <% end %>
     <h5><strong>For: </strong><%= link_to "#{reservation.credit_card.cardholder}'s card",  credit_card_path(reservation.credit_card_id) %></h5>
     <div class="list-group mb-4">
       <span class="list-group-item"><strong>From: </strong><%= reservation.start_date %></span>
