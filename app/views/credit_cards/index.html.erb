@@ -1,14 +1,19 @@
 <div class="container py-5">
   <div class="row">
     <div class="col-12 col-md-8">
-      <h2>Here are all the <%= raw(@type) %>credit cards at your disposal:</h2>
+      <h2>Here are all the <%= raw(@type) %>credit cards at your disposal</h2>
       <div class="filters">
         <% if @type %>
-          <%= link_to "Clear filter", credit_cards_path %>
+          <div class="mt-4">
+            <%= link_to "Clear filter", credit_cards_path %>
+          </div>
         <% else %>
-          <% CreditCard::CARD_TYPE.each do |card| %>
-            <a href="/credit_cards?type=<%= card %>" class="btn btn-outline-primary"><%= card %></a>
-          <% end %>
+          <div class="mt-4">
+            <%= "Filter by card type:" %>
+            <% CreditCard::CARD_TYPE.each do |card| %>
+              <a href="/credit_cards?type=<%= card %>" class="btn btn-outline-primary"><%= card %></a>
+            <% end %>
+          </div>
         <% end %>
       </div>
       <div class="row py-4">
@@ -21,9 +26,11 @@
     </div>
     <div class="col-12 col-md-4">
       <div class="mid-gray p-4 h-100">
-        <%= link_to raw('<i class="fa-solid fa-plus"></i> Add Credit Card'), new_credit_card_path, class: "btn d-block btn-primary btn-lg mb-4" %>
-        <%= link_to raw('<i class="fa-solid fa-address-card"></i> My reservations'), reservation_path(current_user), class: "btn d-block btn-primary btn-lg mb-4" %>
-        <%= link_to raw('<i class="fa-solid fa-credit-card"></i> My cards'), my_cards_path, class: "btn d-block btn-primary btn-lg mb-4" %>
+        <div class="sticky-buttons">
+          <%= link_to raw('<i class="fa-solid fa-plus"></i> Add credit card'), new_credit_card_path, class: "btn d-block btn-primary btn-lg mb-4" %>
+          <%= link_to raw('<i class="fa-solid fa-address-card"></i> My reservations'), reservation_path(current_user), class: "btn d-block btn-primary btn-lg mb-4" %>
+          <%= link_to raw('<i class="fa-solid fa-credit-card"></i> My cards'), my_cards_path, class: "btn d-block btn-primary btn-lg mb-4" %>
+        </div>
       </div>
     </div>
   </div>

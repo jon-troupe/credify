@@ -1,42 +1,64 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%= asset_path "#{@credit_card.card_type}.jpg" %>);"></div>
 <div class="container py-4">
-  <h3>Here is <%= @credit_card.cardholder %>'s card</h3>
-  <p><strong>Card Type: </strong><%= @credit_card.card_type %></p>
-  <p><strong>Card Issuer: </strong><%= @credit_card.card_issuer %></p>
-  <p><strong>Credit Limit: </strong><%= @credit_card.credit_limit %></p>
-  <p><strong>Price Per Day: </strong><%= @credit_card.price_per_day %></p>
-  <% if @credit_card.user_id == current_user.id %>
-    <%= link_to "Remove card", credit_card_path(@credit_card), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
-    <%= link_to "Edit", edit_credit_card_path, class: "btn btn-primary" %>
-  <% else %>
-    <%= link_to "Reserve card", new_credit_card_reservation_path(@credit_card), class: "btn btn-primary" %>
-  <% end %>
-</div>
-<hr>
-<div class="container py-4">
-  <% if @credit_card.user_id == current_user.id && @reservations.any? %>
-    <h3>Your card is reserved:</h3>
-  <% elsif @reservations.any? %>
-    <h3>This card is reserved: </h3>
-  <% end %>
-  <% @reservations.each do |reservation| %>
-    <div class= "py-4">
-      <span class="badge rounded-pill text-bg-info my-2"><%= reservation.status %></span>
-      <% if @credit_card.user_id == current_user.id %>
-        <p><%= link_to "Accept", accept_path(reservation), data: { turbo_method: :patch} %> | <%= link_to "Reject", reject_path(reservation), data: { turbo_method: :patch} %></p>
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <h2>Here is <%= @credit_card.cardholder %>'s card</h2>
+      <h3 class="text-primary">$<%= @credit_card.price_per_day %> per day</h3>
+
+      <div data-controller="map"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>"
+        data-map-marker-value="<%= @marker.to_json %>"
+        style="width: 100%; height: 600px"></div>
+
+      <hr class="my-5">
+
+      <% if @credit_card.user_id == current_user.id && @reservations.any? %>
+        <h3>Your card is reserved:</h3>
+      <% elsif @reservations.any? %>
+        <h3>This card is reserved: </h3>
       <% end %>
-      <div class="list-group mb-4">
-        <span class="list-group-item"> <strong>From: </strong> <%= reservation.start_date %></span>
-        <span class="list-group-item"><strong>Until: </strong><%= reservation.end_date %></span>
-      </div>
-      <% if reservation.user_id == current_user.id %>
-        <p><%= link_to "Edit reservation", edit_reservation_path(reservation), class: "btn btn-primary" %></p>
-        <p><%= link_to "Cancel reservation", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %></p>
+      <% @reservations.each do |reservation| %>
+        <div class= "py-4">
+          <div class="d-flex justify-content-between">
+            <% if reservation.status == "pending" %>
+              <span class="badge rounded-pill text-bg-info my-2"><%= reservation.status %></span>
+            <% elsif reservation.status == "accepted" %>
+              <span class="badge rounded-pill text-bg-success my-2"><%= reservation.status %></span>
+            <% else %>
+              <span class="badge rounded-pill text-bg-danger my-2"><%= reservation.status %></span>
+            <% end %>
+            <% if @credit_card.user_id == current_user.id %>
+              <p><%= link_to "Accept", accept_path(reservation), data: { turbo_method: :patch}%> | <%= link_to "Reject", reject_path(reservation), data: { turbo_method: :patch}%></p>
+            <% end %>
+          </div>
+          <div class="list-group mb-4">
+            <span class="list-group-item"> <strong>From: </strong> <%= reservation.start_date %></span>
+            <span class="list-group-item"><strong>Until: </strong><%= reservation.end_date %></span>
+          </div>
+          <% if reservation.user_id == current_user.id %>
+            <p>
+              <%= link_to raw('<i class="fa-solid fa-pen-to-square"></i> Edit reservation'), edit_reservation_path(reservation), class: "btn btn-primary" %>
+              <%= link_to raw('<i class="fa-solid fa-trash"></i> Cancel reservation'), reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
+            </p>
+          <% end %>
+        </div>
       <% end %>
     </div>
-  <% end %>
-
-  <div data-controller="map"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>"
-    data-map-marker-value="<%= @marker.to_json %>"
-    style="width: 100%; height: 600px"></div>
+    <div class="col-12 col-md-4">
+      <div class="mid-gray p-4 h-100">
+        <h5 class="mb-3"><strong>Card Type: </strong><%= @credit_card.card_type %></h5>
+        <h5 class="mb-3"><strong>Card Issuer: </strong><%= @credit_card.card_issuer %></h5>
+        <h5 class="mb-3"><strong>Credit Limit: </strong>$<%= @credit_card.credit_limit %></h5>
+        <% if @credit_card.user_id == current_user.id %>
+        <%= link_to raw('<i class="fa-solid fa-trash"></i> Remove credit card'), credit_card_path(@credit_card), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn d-block btn-primary btn-lg mb-4" %>
+        <%= link_to raw('<i class="fa-solid fa-pen-to-square"></i> Edit credit card'), edit_credit_card_path, class: "btn d-block btn-primary btn-lg mb-4" %>
+      <% else %>
+        <button type="button" class="btn d-block btn-primary btn-lg mb-4 w-100" data-bs-toggle="modal" data-bs-target="#new_reservation_modal">
+          <i class="fa-solid fa-address-card"></i> Reserve credit card
+        </button>
+      <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+<%= render "reservations/modal", credit_card: @credit_card, reservation: @reservation %>

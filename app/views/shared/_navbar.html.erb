@@ -16,14 +16,21 @@
             <%= link_to "Home", "/", class: "nav-link" %>
           </li>
           <li class="nav-item">
+            <%= link_to "Browse cards", credit_cards_path, class: "nav-link" %>
           </li>
-            <%= link_to "Rent a card now!", credit_cards_path, class: "nav-link" %>
           <li class="nav-item dropdown">
-            <div class="dropdown-toggle d-flex align-items-center" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-circle-user fa-2xl"></i></div>
+            <div class="dropdown-toggle d-flex align-items-center" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.photo.key %>
+                <%= cl_image_tag current_user.photo.key, crop: :thumb, class: "rounded-circle avatar" %>
+              <% else %>
+                <i class="fa-solid fa-circle-user fa-2xl"></i>
+              <% end %>
+            </div>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Add Credit Card", new_credit_card_path, class: "dropdown-item" %>
+              <%= link_to "Add credit card", new_credit_card_path, class: "dropdown-item" %>
               <%= link_to "My reservations", reservation_path(current_user), class: "dropdown-item" %>
               <%= link_to "My cards", my_cards_path, class: "dropdown-item" %>
+              <%= link_to "Edit my profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>

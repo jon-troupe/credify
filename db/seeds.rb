@@ -7,7 +7,7 @@ p "Destroying all your credits cards :("
 User.destroy_all
 p "Destroying all your users"
 
-ricky = User.create!(
+User.create!(
   email: "ricky.tran@gmail.com",
   password: "123456"
 )
@@ -39,7 +39,7 @@ p "Users created"
     credit_limit: Faker::Number.number(digits: 4),
     date: "#{(1..12).to_a.sample}/#{(23..28).to_a.sample}",
     address: Faker::Address.street_address,
-    price_per_day: (50..200).to_a.sample,
+    price_per_day: (25..100).to_a.sample,
     user: laura
   )
 end
@@ -54,7 +54,7 @@ end
     credit_limit: Faker::Number.number(digits: 4),
     date: "#{(1..12).to_a.sample}/#{(23..28).to_a.sample}",
     address: "Montreal",
-    price_per_day: (50..200).to_a.sample,
+    price_per_day: (25..100).to_a.sample,
     user: touhami
   )
 end
@@ -69,7 +69,7 @@ end
     credit_limit: Faker::Number.number(digits: 4),
     date: "#{(1..12).to_a.sample}/#{(23..28).to_a.sample}",
     address: Faker::Address.street_address,
-    price_per_day: (50..200).to_a.sample,
+    price_per_day: (25..100).to_a.sample,
     user: jon
   )
 end

@@ -3,7 +3,7 @@ class CreditCard < ApplicationRecord
   CARD_TYPE = ["Costco", "Triangle", "VISA", "Mastercard", "AMEX", "Discover"].freeze
 
   belongs_to :user
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
   validates :number, presence: true
   validates :pin, presence: true
   validates :date, presence: true
