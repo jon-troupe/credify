@@ -4,7 +4,11 @@
     <div class="col-12 col-md-8">
       <h2>Here is <%= @credit_card.cardholder %>'s card</h2>
       <h3 class="text-primary">$<%= @credit_card.price_per_day %> per day</h3>
-      BIG MAP HERE
+
+      <div data-controller="map"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>"
+        data-map-marker-value="<%= @marker.to_json %>"
+        style="width: 100%; height: 500px"></div>
 
       <hr class="my-5">
 

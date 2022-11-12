@@ -38,7 +38,7 @@ p "Users created"
     card_issuer: CreditCard::ISSUERS.sample,
     credit_limit: Faker::Number.number(digits: 4),
     date: "#{(1..12).to_a.sample}/#{(23..28).to_a.sample}",
-    address: Faker::Address.street_address,
+    address: "Laval, Quebec",
     price_per_day: (25..100).to_a.sample,
     user: laura
   )
@@ -53,7 +53,7 @@ end
     card_issuer: CreditCard::ISSUERS.sample,
     credit_limit: Faker::Number.number(digits: 4),
     date: "#{(1..12).to_a.sample}/#{(23..28).to_a.sample}",
-    address: Faker::Address.street_address,
+    address: "Montreal",
     price_per_day: (25..100).to_a.sample,
     user: touhami
   )
@@ -68,7 +68,7 @@ end
     card_issuer: CreditCard::ISSUERS.sample,
     credit_limit: Faker::Number.number(digits: 4),
     date: "#{(1..12).to_a.sample}/#{(23..28).to_a.sample}",
-    address: Faker::Address.street_address,
+    address: "Toronto",
     price_per_day: (25..100).to_a.sample,
     user: jon
   )

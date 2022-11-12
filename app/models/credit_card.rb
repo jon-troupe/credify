@@ -17,4 +17,7 @@ class CreditCard < ApplicationRecord
   validates :card_issuer, inclusion: { in: ISSUERS }
   validates :credit_limit, length: { in: 3..10 }
   validates :price_per_day, length: { in: 1..5 }
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
