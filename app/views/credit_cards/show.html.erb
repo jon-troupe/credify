@@ -19,6 +19,7 @@
       <% end %>
       <% @reservations.each do |reservation| %>
         <div class= "py-4">
+          <div>By: <%= reservation.user.email %></div>
           <div class="d-flex justify-content-between">
             <% if reservation.status == "pending" %>
               <span class="badge rounded-pill text-bg-info my-2"><%= reservation.status %></span>
