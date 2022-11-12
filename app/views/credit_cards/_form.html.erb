@@ -36,7 +36,8 @@
             </div>
           </div>
           <%= f.input :price_per_day %>
-          <%= f.submit %>
+          <%= f.submit class: "btn btn-primary" %>
+          <%= link_to "Cancel", credit_cards_path, class: "btn btn-outline-secondary my-3" %>
         <% end %>
       </div>
     </div>
