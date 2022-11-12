@@ -19,7 +19,6 @@
       <% end %>
       <% @reservations.each do |reservation| %>
         <div class= "py-4">
-          <div>By: <%= reservation.user.email %></div>
           <div class="d-flex justify-content-between">
             <% if reservation.status == "pending" %>
               <span class="badge rounded-pill text-bg-info my-2"><%= reservation.status %></span>
@@ -33,8 +32,9 @@
             <% end %>
           </div>
           <div class="list-group mb-4">
-            <span class="list-group-item"> <strong>From: </strong> <%= reservation.start_date %></span>
-            <span class="list-group-item"><strong>Until: </strong><%= reservation.end_date %></span>
+            <span class="list-group-item"><strong>By:</strong> <%= reservation.user.email %></span>
+            <span class="list-group-item"><strong>From:</strong> <%= reservation.start_date %></span>
+            <span class="list-group-item"><strong>Until:</strong> <%= reservation.end_date %></span>
           </div>
           <% if reservation.user_id == current_user.id %>
             <p>
