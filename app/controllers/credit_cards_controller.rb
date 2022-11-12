@@ -29,7 +29,7 @@ class CreditCardsController < ApplicationController
     @credit_card = CreditCard.new(credit_card_params)
     @credit_card.user = current_user
     if @credit_card.save
-      redirect_to credit_card_path(@credit_card)
+      redirect_to my_cards_path
     else
       render :new, status: :unprocessable_entity
     end
