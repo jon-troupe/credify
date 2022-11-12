@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :reservations, dependent: :destroy
-  has_many :credit_card
+  has_many :reservations
+  has_many :credit_card, dependent: :destroy
   has_one_attached :photo
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
