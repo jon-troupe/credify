@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_credit_card, only: %i[new create update]
+  before_action :set_credit_card, only: %i[new create]
   before_action :set_reservation, only: %i[destroy edit update accept reject]
 
   def show
