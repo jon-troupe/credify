@@ -10,12 +10,14 @@
     <% else %>
         <span class="badge rounded-pill text-bg-danger my-2"><%= reservation.status %></span>
     <% end %>
-    <h5><strong>For: </strong><%= link_to "#{reservation.credit_card.cardholder}'s card",  credit_card_path(reservation.credit_card_id) %></h5>
+
     <div class="list-group mb-4">
+      <h5 class="list-group-item mb-0 mid-gray"><strong>For: </strong><%= link_to "#{reservation.credit_card.cardholder}'s card",  credit_card_path(reservation.credit_card_id) %></h5>
       <span class="list-group-item"><strong>From: </strong><%= reservation.start_date %></span>
       <span class="list-group-item"><strong>Until: </strong><%= reservation.end_date %></span>
     </div>
-    <%= link_to "Cancel reservation", reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
+    <%= link_to raw('<i class="fa-solid fa-pen-to-square"></i> Edit reservation'), edit_reservation_path(reservation), class: "btn btn-primary" %>
+    <%= link_to raw('<i class="fa-solid fa-trash"></i> Cancel reservation'), reservation_path(reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
   </div>
 <% end %>
   </div>
