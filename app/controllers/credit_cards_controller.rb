@@ -26,6 +26,7 @@ class CreditCardsController < ApplicationController
 
   def create
     @credit_card = CreditCard.new(credit_card_params)
+    @credit_card.user = current_user
     if @credit_card.save
       redirect_to credit_card_path(@credit_card)
     else
@@ -37,7 +38,7 @@ class CreditCardsController < ApplicationController
   end
 
   def update
-    @credit_card = CreditCard.update(credit_card_params)
+    @credit_card.update(credit_card_params)
     redirect_to credit_card_path(@credit_card)
   end
 
@@ -58,6 +59,6 @@ class CreditCardsController < ApplicationController
 
   def credit_card_params
     params.require(:credit_card).permit(:number, :pin, :cardholder, :card_type,
-    :card_issuer, :credit_limit, :address, :date, :price_per_day, :user_id)
+    :card_issuer, :credit_limit, :address, :date, :price_per_day)
   end
 end
