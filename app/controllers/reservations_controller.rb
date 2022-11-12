@@ -32,7 +32,7 @@ class ReservationsController < ApplicationController
 
   def update
     @reservation.update(reservations_params)
-    @reservation.status = "pending" if @credit_card.user_id != current_user.id
+    @reservation.status = "pending" if @reservation.credit_card_id != current_user.id
     redirect_to credit_card_path(@reservation.credit_card_id)
   end
 

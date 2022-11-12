@@ -1,5 +1,5 @@
 class CreditCardsController < ApplicationController
-  before_action :set_cc, only: %i[show update destroy edit update]
+  before_action :set_cc, only: %i[show update destroy edit]
 
   def index
     if params[:type].present?
