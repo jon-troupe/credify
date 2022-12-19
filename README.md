@@ -1,1 +1,4 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Credify
+=======
+
+Marketplace for Credit Cards rental, built with Ruby on Rails as part of Le Wagon Coding Bootcamp.
