@@ -6,25 +6,23 @@ Credify is the Airbnb of credit cards. Essentially, it is an all-in-one platform
 ## Built With
 
   - Ruby on Rails
-  - Geocoding API
+  - Mapbox API
   - Cloudinary API
 
 ## Authors
 
   - **Jonathan Troupe** -
-    [SaneCashew]([https://github.com/SaneCashew])
+    [SaneCashew](https://github.com/SaneCashew)
     
   - **Touhami Abi** -
-    [TouhamiAbi]([https://github.com/touhamiabi])
+    [TouhamiAbi](https://github.com/touhamiabi)
   
   - **Laura Gonzalez** -
-    [LauraGonzalezZ]([https://github.com/laura-gonzalez-z])
+    [LauraGonzalezZ](https://github.com/laura-gonzalez-z)
     
   - **Ricky Tran** -
-    [ShadowSpin1]([https://github.com/shadowSpin1])
+    [ShadowSpin1](https://github.com/shadowSpin1)
 
-See also the list of
-[contributors]([https://github.com/ShadowSpin1/credify/graphs/contributors])
-who participated in this project.
+See also the list of [contributors](https://github.com/ShadowSpin1/credify/graphs/contributors) who participated in this project.
 
 
