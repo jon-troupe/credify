@@ -18,7 +18,7 @@ Credify is the Airbnb of credit cards. Essentially, it is an all-in-one platform
     [TouhamiAbi]([https://github.com/touhamiabi])
   
   - **Laura Gonzalez** -
-    [LauraGonzalez]([https://github.com/laura-gonzalez-z])
+    [LauraGonzalezZ]([https://github.com/laura-gonzalez-z])
     
   - **Ricky Tran** -
     [ShadowSpin1]([https://github.com/shadowSpin1])
