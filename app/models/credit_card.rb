@@ -10,8 +10,10 @@ class CreditCard < ApplicationRecord
   validates :card_type, presence: true
   validates :card_issuer, presence: true
   validates :credit_limit, presence: true
+  validates :credit_limit, comparison: { greater_than: 0 }
   validates :address, presence: true
   validates :price_per_day, presence: true
+  validates :price_per_day, comparison: { greater_than: 0 }
   validates :cardholder, presence: true
   validates :card_type, inclusion: { in: CARD_TYPE }
   validates :card_issuer, inclusion: { in: ISSUERS }

@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to credit_card_path(@credit_card)
     else
-      render :new, :unprocessable_entity
+      render "credit_cards/show", status: :unprocessable_entity
     end
   end
 
